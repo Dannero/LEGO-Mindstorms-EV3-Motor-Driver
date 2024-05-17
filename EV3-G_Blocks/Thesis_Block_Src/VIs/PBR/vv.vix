@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Version="1.0.2.10" xmlns="http://www.ni.com/SourceModel.xsd">
+    <Namespace Name="Project">
+        <VirtualInstrument IsTopLevel="false" IsReentrant="false" Version="1.0.2.0" xmlns="http://www.ni.com/VirtualInstrument.xsd">
+            <DataItem Name="SequenceIn" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="6" />
+            <DataItem Name="SequenceOut" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Input" CallUsage="None" CallDirection="Output" CallIndex="6" />
+            <DataItem Name="Addr" DataType="Byte" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="1" DefaultValue="0" />
+            <DataItem Name="Motor2" DataType="Byte" DefaultTerminalDirection="Input" CallUsage="None" CallDirection="Output" CallIndex="2" DefaultValue="0" />
+            <DataItem Name="Port" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="4" DefaultValue="0" />
+            <FrontPanel>
+                <fpruntime:FrontPanelCanvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:Model="clr-namespace:NationalInstruments.SourceModel.Designer;assembly=NationalInstruments.SourceModel" x:Name="FrontPanel" Model:DesignerSurfaceProperties.CanSnapToObjects="True" Model:DesignerSurfaceProperties.SnapToObjects="True" Model:DesignerSurfaceProperties.ShowSnaplines="True" Model:DesignerSurfaceProperties.ShowControlAdorners="True" Width="640" Height="480" />
+            </FrontPanel>
+            <BlockDiagram Name="__RootDiagram__">
+                <DataAccessor DataItem="Port" Id="n35" Bounds="-133 70 70 14">
+                    <Terminal Id="Numeric" Direction="Output" Hotspot="1 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="Motor2" Id="n16" Bounds="434 119 70 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w10" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="Addr" Id="n3" Bounds="35 119 70 14">
+                    <Terminal Id="Value" Direction="Output" Wire="w8" Hotspot="1 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <CaseStructure Id="n0" Bounds="140 28 252 189" DataType="Byte" UserSelectorBounds="67.497 0 117.007 14" Selected="D29" Default="d1">
+                    <CaseStructure.Case Id="d1" Bounds="7 7 238 175" Pattern="1, Default">
+                        <Literal Id="n21" Terminals="Out=w4" Bounds="84 112 28 14" Interpretation="Exact" DataType="Byte">16</Literal>
+                        <Wire Id="w4" Joints="N(n21:Out) h(112) v(-7) N(b8:d1)" />
+                    </CaseStructure.Case>
+                    <CaseStructure.Case Id="D29" Bounds="7 7 238 175" Pattern="2..16">
+                        <Literal Id="n21" Terminals="Out=w3" Bounds="70 105 28 14" Interpretation="Exact" DataType="Byte">8</Literal>
+                        <Wire Id="w3" Joints="N(n21:Out) N(b8:D29)" />
+                    </CaseStructure.Case>
+                    <CaseStructure.Selector Id="b16" Terminals="n0=w8, d1, D29" TopLeft="0 168" />
+                    <CaseStructure.Tunnel Id="b8" Terminals="n0=w10, d1=w4, D29=w3" TopLeft="238 112" />
+                </CaseStructure>
+                <Wire Id="w8" Joints="N(n3:Value) h(28) v(77) N(b16:n0)" />
+                <Wire Id="w10" Joints="N(b8:n0) h(34) v(-21) N(n16:Value)" />
+            </BlockDiagram>
+        </VirtualInstrument>
+    </Namespace>
+</SourceFile>

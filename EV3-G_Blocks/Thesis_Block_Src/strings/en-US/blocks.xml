@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EditorStrings>
+  <PolyGroups ModuleName="ThesisBlocks">
+    <!-- UART Block -->
+	  <PolyGroup Name="UartBlock" DisplayName="Uart Block" DisplayNamePrefix="UartBlock">
+      <!-- Parameters -->
+      <Parameter Name="Direction" DisplayName="Direction" >
+        <Description><![CDATA[<p>Context help for Direction</p>]]></Description>
+      </Parameter>
+      <Parameter Name="Port" DisplayName="Port" >
+        <Description><![CDATA[<p>Context help for Port</p>]]></Description>
+      </Parameter>
+      <Parameter Name="Amount" DisplayName="Amount" >
+        <Description><![CDATA[<p>Context help for Amount</p>]]></Description>
+      </Parameter>
+      <Parameter Name="Value" DisplayName="Get single byte via UART">
+        <Description><![CDATA[<p>Get single byte via UART</p>]]></Description>
+      </Parameter>
+      <Parameter Name="Data" DisplayName="Write Data">
+        <Description><![CDATA[<p>Data byte to write</p>]]></Description>
+      </Parameter>
+      <Parameter Name="Result" DisplayName="Compare Result">
+        <Description><![CDATA[<p>Context help for Compare Result</p>]]></Description>
+      </Parameter>
+      <Parameter Name="RByte1" DisplayName="ReadByte1">
+        <Description><![CDATA[<p>Read byte 1 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="RByte2" DisplayName="ReadByte2">
+          <Description><![CDATA[<p>Read byte 2 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="RByte3" DisplayName="ReadByte3">
+          <Description><![CDATA[<p>Read byte 3 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="RByte4" DisplayName="ReadByte4">
+          <Description><![CDATA[<p>Read byte 4 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="RByte5" DisplayName="ReadByte5">
+          <Description><![CDATA[<p>Read byte 5 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="RByte6" DisplayName="ReadByte6">
+          <Description><![CDATA[<p>Read byte 6 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="RByte7" DisplayName="ReadByte7">
+          <Description><![CDATA[<p>Read byte 7 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="RByte8" DisplayName="ReadByte8">
+          <Description><![CDATA[<p>Read byte 8 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="WByte1" DisplayName="WriteByte1" >
+          <Description><![CDATA[<p>Write byte 1 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="WByte2" DisplayName="WriteByte2" >
+          <Description><![CDATA[<p>Write byte 2 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="WByte3" DisplayName="WriteByte3" >
+          <Description><![CDATA[<p>Write byte 3 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="WByte4" DisplayName="WriteByte4" >
+          <Description><![CDATA[<p>Write byte 4 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="WByte5" DisplayName="WriteByte5" >
+          <Description><![CDATA[<p>Write byte 5 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="WByte6" DisplayName="WriteByte6" >
+          <Description><![CDATA[<p>Write byte 6 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="WByte7" DisplayName="WriteByte7" >
+          <Description><![CDATA[<p>Write byte 7 of 8</p>]]></Description>
+      </Parameter>
+      <Parameter Name="WByte8" DisplayName="WriteByte8" >
+          <Description><![CDATA[<p>Write byte 8 of 8</p>]]></Description>
+      </Parameter>
+      <!-- Blocks -->
+      <Block Mode="UartRead" DisplayName="Read One Byte Via UART">
+        <Description><![CDATA[<p>Read UART BYTE</p>]]></Description>
+      </Block>  
+      <Block Mode="UartRead8Bytes" DisplayName="Read 8 Bytes Via UART">
+        <Description><![CDATA[<p>Read UART 8 BYTES</p>]]></Description>
+      </Block>  
+
+      <Block Mode="UartWrite" DisplayName="Write One Byte Via UART">
+        <Description><![CDATA[<p>Write UART BYTE</p>]]></Description>
+      </Block>  
+      <Block Mode="UartWrite8Bytes" DisplayName="Write 8 Bytes Via UART">
+        <Description><![CDATA[<p>Write UART 8 BYTES</p>]]></Description>
+      </Block>
+    </PolyGroup>
+
+    <!-- Motor control Block -->
+    <PolyGroup Name="MotorControl" DisplayName="Motor Control" DisplayNamePrefix="MotorControl">
+      <!-- Parameters -->
+      <Parameter Name="Direction" DisplayName="Direction" >
+        <Description><![CDATA[<p>Context help for Direction</p>]]></Description>
+      </Parameter>
+      <Parameter Name="Port" DisplayName="Port" >
+        <Description><![CDATA[<p>Context help for Port</p>]]></Description>
+      </Parameter> 
+      <Parameter Name="MotorNum" DisplayName="Motor Number">
+        <Description><![CDATA[<p>Context help for Compare Result</p>]]></Description>
+      </Parameter>
+      <Parameter Name="OnOff" DisplayName="Set Motor On or Off">
+        <Description><![CDATA[<p>Set Motor On or Off</p>]]></Description>
+      </Parameter>
+      <Parameter Name="Polarity" DisplayName="Polarity">
+        <Description><![CDATA[<p>Set Polarity of a Motor</p>]]></Description>
+      </Parameter>
+      <Parameter Name="DutyCycle" DisplayName="Duty Cycle">
+        <Description><![CDATA[<p>Set Duty Cycle of a Motor</p>]]></Description>
+      </Parameter>
+      <Parameter Name="Addr" DisplayName="Address" >
+        <Description><![CDATA[<p>Address of the I2C Slave device</p>]]></Description>
+      </Parameter>
+      <Parameter Name="Motor1" DisplayName="Motor1" >
+        <Description><![CDATA[<p>Duty cycle of Motor 1</p>]]></Description>
+      </Parameter>
+      <Parameter Name="Motor2" DisplayName="Motor2" >
+        <Description><![CDATA[<p>Duty cycle of Motor 2</p>]]></Description>
+      </Parameter>
+      <Parameter Name="Motor3" DisplayName="Motor3" >
+        <Description><![CDATA[<p>Duty cycle of Motor 3</p>]]></Description>
+      </Parameter>
+      <Parameter Name="Motor4" DisplayName="Motor4" >
+        <Description><![CDATA[<p>Duty cycle of Motor 4</p>]]></Description>
+      </Parameter>
+      <!-- Blocks -->
+      <Block Mode="UARTControl" DisplayName="Control Motors via UART">
+        <Description><![CDATA[<p>Control via UART</p>]]></Description>
+      </Block>  
+      <Block Mode="UARTRunAllMotors" DisplayName="Run All Motors via UART">
+        <Description><![CDATA[<p>Run All via UART</p>]]></Description>
+      </Block>
+      <Block Mode="UARTStopAllMotors" DisplayName="Stop All Motors via UART">
+        <Description><![CDATA[<p>Stop All via UART</p>]]></Description>
+      </Block>
+      <Block Mode="UARTReadMotorState" DisplayName="Read duty cycles of motors via UART">
+        <Description><![CDATA[<p>Read duty cycles of motors via UART</p>]]></Description>
+      </Block>
+
+      <Block Mode="I2CControl" DisplayName="Control Motors via I2C">
+        <Description><![CDATA[<p>Control via I2C</p>]]></Description>
+      </Block>
+      <Block Mode="I2CRunAllMotors" DisplayName="Run All Motors via I2C">
+        <Description><![CDATA[<p>Run All via I2C</p>]]></Description>
+      </Block>
+      <Block Mode="I2CStopAllMotors" DisplayName="Stop All Motors via I2C">
+        <Description><![CDATA[<p>Stop All via I2C</p>]]></Description>
+      </Block>
+    </PolyGroup>
+  </PolyGroups>
+</EditorStrings>

@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EditorDefinitions>
+  <PolyGroups ModuleName="ThesisBlocks" ModuleVersion="1.30">
+	<PolyGroup Name="UartBlock" BlockFamily="Sensor">
+      <Parameter Name="Port" CompilerDirectives="OneInputPort" Direction="Input" DefaultValue="1.3" />
+      <Parameter Name="Value" Identification="byte.png" DataType="Single" Direction="Output" />
+      <Parameter Name="Result" CompilerDirectives="Result" Identification="builtin://Identification_CompareResult.png" DataType="Boolean" Direction="Output" />
+      <Parameter Name="WriteByte" Identification="byte.png" DataType="UInt32" Direction="Input" DefaultValue="0" />
+
+      <Parameter Name="RByte1" Identification="byte1.png" DataType="Single" Direction="Output"/>
+      <Parameter Name="RByte2" Identification="byte2.png" DataType="Single" Direction="Output"/>
+      <Parameter Name="RByte3" Identification="byte3.png" DataType="Single" Direction="Output"/>
+      <Parameter Name="RByte4" Identification="byte4.png" DataType="Single" Direction="Output"/>
+      <Parameter Name="RByte5" Identification="byte5.png" DataType="Single" Direction="Output"/>
+      <Parameter Name="RByte6" Identification="byte6.png" DataType="Single" Direction="Output"/>
+      <Parameter Name="RByte7" Identification="byte7.png" DataType="Single" Direction="Output"/>
+      <Parameter Name="RByte8" Identification="byte8.png" DataType="Single" Direction="Output"/>
+
+      <Parameter Name="WByte1" Identification="byte1.png" DataType="Byte" Direction="Input" DefaultValue="0" />
+      <Parameter Name="WByte2" Identification="byte2.png" DataType="Byte" Direction="Input" DefaultValue="0" />
+      <Parameter Name="WByte3" Identification="byte3.png" DataType="Byte" Direction="Input" DefaultValue="0" />
+      <Parameter Name="WByte4" Identification="byte4.png" DataType="Byte" Direction="Input" DefaultValue="0" />
+      <Parameter Name="WByte5" Identification="byte5.png" DataType="Byte" Direction="Input" DefaultValue="0" />
+      <Parameter Name="WByte6" Identification="byte6.png" DataType="Byte" Direction="Input" DefaultValue="0" />
+      <Parameter Name="WByte7" Identification="byte7.png" DataType="Byte" Direction="Input" DefaultValue="0" />
+      <Parameter Name="WByte8" Identification="byte8.png" DataType="Byte" Direction="Input" DefaultValue="0" />
+
+      <Hardware>
+        <NXTPlotColor>#ffff3132</NXTPlotColor>
+        <EV3PlotColor>#ff785028</EV3PlotColor>
+        <EV3AutoID>100</EV3AutoID>
+        <Direction>Input</Direction>
+        <DefaultPort>1.1</DefaultPort>
+      </Hardware>
+      <Block>
+        <Mode>UartRead</Mode>
+        <Reference Type="VILib" Name="UartRead.vix" />
+        <ParameterReference Name="Port" />
+        <ParameterReference Name="Value" />
+        <PaletteInfo Weight="0.5" />
+        <BlockInterface>UartRead</BlockInterface>
+        <Flags></Flags>
+      </Block>
+      <Block>
+        <Mode>UartWrite</Mode>
+        <Reference Type="VILib" Name="UartWrite.vix" />
+        <ParameterReference Name="Port" />
+        <ParameterReference Name="WriteByte" />
+        <BlockInterface>UartWrite</BlockInterface>
+        <Flags></Flags>
+      </Block>
+      <!-- Problematic block, cannot read more than a single byte -->
+      <!-- <Block>
+        <Mode>UartRead8Bytes</Mode>
+        <Reference Type="VILib" Name="UartRead8Bytes.vix" />
+        <ParameterReference Name="Port" />
+        <ParameterReference Name="RByte1" />
+        <ParameterReference Name="RByte2" />
+        <ParameterReference Name="RByte3" />
+        <ParameterReference Name="RByte4" />
+        <ParameterReference Name="RByte5" />
+        <ParameterReference Name="RByte6" />
+        <ParameterReference Name="RByte7" />
+        <ParameterReference Name="RByte8" />
+        <BlockInterface>UartRead</BlockInterface>
+        <Flags></Flags>
+      </Block> -->
+      <Block>
+        <Mode>UartWrite8Bytes</Mode>
+        <Reference Type="VILib" Name="UartWrite8Bytes.vix" />
+        <ParameterReference Name="Port" />
+        <ParameterReference Name="WByte1" />
+        <ParameterReference Name="WByte2" />
+        <ParameterReference Name="WByte3" />
+        <ParameterReference Name="WByte4" />
+        <ParameterReference Name="WByte5" />
+        <ParameterReference Name="WByte6" />
+        <ParameterReference Name="WByte7" />
+        <ParameterReference Name="WByte8" />
+        <BlockInterface>UartWrite</BlockInterface>
+        <Flags></Flags>
+      </Block>
+    </PolyGroup>
+    <PolyGroup Name="MotorControl" BlockFamily="Sensor">
+        <Parameter Name="Port" CompilerDirectives="OneInputPort" Direction="Input" DefaultValue="1.3" />
+        <Parameter Name="Addr" Identification="addr.png" DataType="Byte" Direction="Input" DefaultValue="18" />
+        <Parameter Name="MotorNum" Identification="motor.png" DataType="Byte" Direction="Input" DefaultValue="0" />
+        <Parameter Name="OnOff" Identification="01.png" DataType="Byte" Direction="Input" DefaultValue="0" />
+        <Parameter Name="Polarity" Identification="pol.png" DataType="Byte" Direction="Input" DefaultValue="0" />
+        <Parameter Name="DutyCycle" Identification="pwm.png" DataType="Byte" Direction="Input" DefaultValue="0" />
+
+        <Parameter Name="Motor1" Identification="motor1.png" DataType="Single" Direction="Output"/>
+        <Parameter Name="Motor2" Identification="motor2.png" DataType="Single" Direction="Output"/>
+        <Parameter Name="Motor3" Identification="motor3.png" DataType="Single" Direction="Output"/>
+        <Parameter Name="Motor4" Identification="motor4.png" DataType="Single" Direction="Output"/>
+
+        <Hardware>
+          <NXTPlotColor>#ffff3132</NXTPlotColor>
+          <EV3PlotColor>#ff785028</EV3PlotColor>
+          <EV3AutoID>100</EV3AutoID>
+          <Direction>Input</Direction>
+          <DefaultPort>1.1</DefaultPort>
+        </Hardware>
+          <Block>
+            <Mode>UARTControl</Mode>
+            <Reference Type="VILib" Name="MotorControlUART.vix" />
+            <ParameterReference Name="Port" />
+            <ParameterReference Name="MotorNum" />
+            <ParameterReference Name="OnOff" />
+            <ParameterReference Name="Polarity" />
+            <ParameterReference Name="DutyCycle" />
+            <PaletteInfo Weight="0.5" />
+            <BlockInterface>UART</BlockInterface>
+            <Flags></Flags>
+          </Block>
+          <Block>
+            <Mode>UARTRunAllMotors</Mode>
+            <Reference Type="VILib" Name="RunAllMotorsUART.vix" />
+            <ParameterReference Name="Port" />
+            <ParameterReference Name="OnOff" />
+            <ParameterReference Name="Polarity" />
+            <ParameterReference Name="DutyCycle" />
+            <BlockInterface>UART</BlockInterface>
+            <Flags></Flags>
+          </Block>
+          <Block>
+            <Mode>UARTStopAllMotors</Mode>
+            <Reference Type="VILib" Name="StopAllMotorsUART.vix" />
+            <ParameterReference Name="Port" />
+            <BlockInterface>UART</BlockInterface>
+            <Flags></Flags>
+          </Block>
+          <Block>
+            <Mode>UARTReadMotorState</Mode>
+            <Reference Type="VILib" Name="UARTReadMotorState.vix" />
+            <ParameterReference Name="Port" />
+            <ParameterReference Name="Motor1" />
+            <ParameterReference Name="Motor2" />
+            <ParameterReference Name="Motor3" />
+            <ParameterReference Name="Motor4" />
+            <BlockInterface>UART</BlockInterface>
+            <Flags></Flags>
+          </Block>
+          <Block>
+            <Mode>I2CControl</Mode>
+            <Reference Type="VILib" Name="MotorControlI2C.vix" />
+            <ParameterReference Name="Port" />
+            <ParameterReference Name="Addr" />
+            <ParameterReference Name="MotorNum" />
+            <ParameterReference Name="OnOff" />
+            <ParameterReference Name="Polarity" />
+            <ParameterReference Name="DutyCycle" />
+            <BlockInterface>I2C</BlockInterface>
+            <Flags></Flags>
+          </Block>
+          <Block>
+            <Mode>I2CRunAllMotors</Mode>
+            <Reference Type="VILib" Name="RunAllMotorsI2C.vix" />
+            <ParameterReference Name="Port" />
+            <ParameterReference Name="Addr" />
+            <ParameterReference Name="OnOff" />
+            <ParameterReference Name="Polarity" />
+            <ParameterReference Name="DutyCycle" />
+            <BlockInterface>I2C</BlockInterface>
+            <Flags></Flags>
+          </Block>
+          <Block>
+            <Mode>I2CStopAllMotors</Mode>
+            <Reference Type="VILib" Name="StopAllMotorsI2C.vix" />
+            <ParameterReference Name="Port" />
+            <ParameterReference Name="Addr" />
+            <BlockInterface>I2C</BlockInterface>
+            <Flags></Flags>
+          </Block>
+      </PolyGroup>
+  </PolyGroups>
+</EditorDefinitions>

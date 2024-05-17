@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Version="1.0.2.10" xmlns="http://www.ni.com/SourceModel.xsd">
+    <Namespace Name="Project">
+        <VirtualInstrument IsTopLevel="false" IsReentrant="false" Version="1.0.2.0" xmlns="http://www.ni.com/VirtualInstrument.xsd">
+            <DataItem Name="SequenceIn" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="6" />
+            <DataItem Name="SequenceOut" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Input" CallUsage="None" CallDirection="Output" CallIndex="6" />
+            <DataItem Name="Port" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="4" DefaultValue="0" />
+            <FrontPanel>
+                <fpruntime:FrontPanelCanvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:Model="clr-namespace:NationalInstruments.SourceModel.Designer;assembly=NationalInstruments.SourceModel" x:Name="FrontPanel" Model:DesignerSurfaceProperties.CanSnapToObjects="True" Model:DesignerSurfaceProperties.SnapToObjects="True" Model:DesignerSurfaceProperties.ShowSnaplines="True" Model:DesignerSurfaceProperties.ShowControlAdorners="True" Width="640" Height="480" />
+            </FrontPanel>
+            <BlockDiagram Name="__RootDiagram__">
+                <Wire Id="w22" Joints="N(n35:Numeric) N(n36:port)" />
+                <Wire Id="w14" Joints="N(n36:layer) N(b23:n38)" />
+                <Wire Id="w15" Joints="N(n36:portOut) N(b24:n38)" />
+                <DataAccessor DataItem="Port" Id="n35" Bounds="-161 56 70 14">
+                    <Terminal Id="Numeric" Direction="Output" Wire="w22" Hotspot="1 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <MethodCall Id="n36" Bounds="-84 56 28 28" Target="X3\.Lib:PBrickPortConvertInput">
+                    <Terminal Id="port" Direction="Input" Wire="w22" DataType="Int32" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                    <Terminal Id="layer" Direction="Output" Wire="w14" DataType="SByte" Hotspot="1 0.5" Bounds="14 0 14 14" />
+                    <Terminal Id="portOut" Direction="Output" Wire="w15" DataType="SByte" Hotspot="1 0.5" Bounds="14 14 14 14" />
+                </MethodCall>
+                <FlatSequence Id="n38" Bounds="-49 35 175 140">
+                    <FlatSequence.Frame Id="D25" Bounds="7 7 161 126">
+                        <Wire Id="w21" Joints="N(b23:D25) N(n8:layer)" />
+                        <Wire Id="w23" Joints="N(b24:D25) N(n8:port)" />
+                        <Wire Id="w39" Joints="N(n19:Out) N(n8:length)" />
+                        <MethodCall Id="n8" Bounds="119 14 28 56" Target="X3\.Lib:PBrickInputWrite">
+                            <Terminal Id="layer" Direction="Input" Wire="w21" DataType="Byte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                            <Terminal Id="port" Direction="Input" Wire="w23" DataType="Byte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                            <Terminal Id="length" Direction="Input" Wire="w39" DataType="Byte" Hotspot="0 0.5" Bounds="0 28 14 14" />
+                            <Terminal Id="data" Direction="Input" Wire="w9" DataType="Byte[]" Hotspot="0 0.5" Bounds="0 42 14 14" />
+                        </MethodCall>
+                        <Literal Facade="ArrayConstantFacade" Id="n22" Terminals="Out=w9" Bounds="7 56 42 56" Interpretation="Exact" DataType="Byte[]">[0,64,128,192]</Literal>
+                        <Literal Id="n19" Terminals="Out=w39" Bounds="56 42 28 14" Interpretation="Exact" DataType="Int32">4</Literal>
+                        <Wire Id="w9" Joints="N(n22:Out) N(n8:data)" />
+                    </FlatSequence.Frame>
+                    <FlatSequence.Tunnel Id="b23" Terminals="n38=w14, D25=w21" TopLeft="0 21" />
+                    <FlatSequence.Tunnel Id="b24" Terminals="n38=w15, D25=w23" TopLeft="0 35" />
+                </FlatSequence>
+            </BlockDiagram>
+        </VirtualInstrument>
+    </Namespace>
+</SourceFile>

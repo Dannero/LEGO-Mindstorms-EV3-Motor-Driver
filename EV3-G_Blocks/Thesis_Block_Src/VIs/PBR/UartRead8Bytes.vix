@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Version="1.0.2.10" xmlns="http://www.ni.com/SourceModel.xsd">
+    <Namespace Name="Project">
+        <VirtualInstrument IsTopLevel="false" IsReentrant="false" Version="1.0.2.0" xmlns="http://www.ni.com/VirtualInstrument.xsd">
+            <DataItem Name="SequenceIn" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="6" />
+            <DataItem Name="SequenceOut" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Input" CallUsage="None" CallDirection="Output" CallIndex="6" />
+            <DataItem Name="Port" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="0" DefaultValue="0" />
+            <DataItem Name="RByte1" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="0" DefaultValue="0" />
+            <DataItem Name="RByte2" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="0" DefaultValue="0" />
+            <DataItem Name="RByte3" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="0" DefaultValue="0" />
+            <DataItem Name="RByte4" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="0" DefaultValue="0" />
+            <DataItem Name="RByte5" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="0" DefaultValue="0" />
+            <DataItem Name="RByte6" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="0" DefaultValue="0" />
+            <DataItem Name="RByte7" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="0" DefaultValue="0" />
+            <DataItem Name="RByte8" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="0" DefaultValue="0" />
+
+            <FrontPanel>
+                <fpruntime:FrontPanelCanvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:Model="clr-namespace:NationalInstruments.SourceModel.Designer;assembly=NationalInstruments.SourceModel" x:Name="FrontPanel" Model:DesignerSurfaceProperties.CanSnapToObjects="True" Model:DesignerSurfaceProperties.SnapToObjects="True" Model:DesignerSurfaceProperties.ShowSnaplines="True" Model:DesignerSurfaceProperties.ShowControlAdorners="True" Width="640" Height="480" />
+            </FrontPanel>
+            <BlockDiagram Name="__RootDiagram__">
+                <Wire Id="w8" Joints="N(n16:portOut) N(n41:port)" />
+                <Wire Id="w9" Joints="N(n16:layer) N(n41:layer)" />
+                <Wire Id="w11" Joints="N(n10:Out) N(n41:type)" />
+                <Wire Id="w13" Joints="N(n12:Out) N(n41:Mode)" />
+                <Wire Id="w15" Joints="N(n15:Out) N(n41:ValueCount)" />
+                <Literal Id="n10" Terminals="Out=w11" Bounds="903 203 35 14" Interpretation="Exact" DataType="Byte">100</Literal>
+                <Literal Id="n12" Terminals="Out=w13" Bounds="903 217 28 14" Interpretation="Exact" DataType="Byte">4</Literal>
+                <Literal Id="n15" Terminals="Out=w15" Bounds="903 231 28 14" Interpretation="Exact" DataType="Byte">8</Literal>
+                <MethodCall Id="n16" Bounds="868 175 28 28" Target="X3\.Lib:PBrickPortConvertInput">
+                    <Terminal Id="port" Direction="Input" Wire="w14" DataType="Int32" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                    <Terminal Id="layer" Direction="Output" Wire="w9" DataType="SByte" Hotspot="1 0.5" Bounds="14 0 14 14" />
+                    <Terminal Id="portOut" Direction="Output" Wire="w8" DataType="SByte" Hotspot="1 0.5" Bounds="14 14 14 14" />
+                </MethodCall>
+                <DataAccessor DataItem="Port" Id="n18" Bounds="770 175 70 14">
+                    <Terminal Id="Port" Direction="Output" Wire="w14" Hotspot="1 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <Wire Id="w14" Joints="N(n18:Port) N(n16:port)" />
+                <MethodCall Id="n41" Bounds="952 175 28 112" Target="X3\.Lib:PBrickInputReadySI8">
+                    <Terminal Id="layer" Direction="Input" Wire="w9" DataType="SByte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                    <Terminal Id="port" Direction="Input" Wire="w8" DataType="SByte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                    <Terminal Id="type" Direction="Input" Wire="w11" DataType="SByte" Hotspot="0 0.5" Bounds="0 28 14 14" />
+                    <Terminal Id="Mode" Direction="Input" Wire="w13" DataType="SByte" Hotspot="0 0.5" Bounds="0 42 14 14" />
+                    <Terminal Id="ValueCount" Direction="Input" Wire="w15" DataType="SByte" Hotspot="0 0.5" Bounds="0 56 14 14" />
+                    <Terminal Id="Value1" Direction="Output" Wire="w21" DataType="Single" Hotspot="1 0.5" Bounds="14 0 14 14" />
+                    <Terminal Id="Value2" Direction="Output" Wire="w22" DataType="Single" Hotspot="1 0.5" Bounds="14 14 14 14" />
+                    <Terminal Id="Value3" Direction="Output" Wire="w23" DataType="Single" Hotspot="1 0.5" Bounds="14 28 14 14" />
+                    <Terminal Id="Value4" Direction="Output" Wire="w24" DataType="Single" Hotspot="1 0.5" Bounds="14 42 14 14" />
+                    <Terminal Id="Value5" Direction="Output" Wire="w25" DataType="Single" Hotspot="1 0.5" Bounds="14 56 14 14" />
+                    <Terminal Id="Value6" Direction="Output" Wire="w26" DataType="Single" Hotspot="1 0.5" Bounds="14 70 14 14" />
+                    <Terminal Id="Value7" Direction="Output" Wire="w27" DataType="Single" Hotspot="1 0.5" Bounds="14 84 14 14" />
+                    <Terminal Id="Value8" Direction="Output" Wire="w28" DataType="Single" Hotspot="1 0.5" Bounds="14 98 14 14" />
+                </MethodCall>
+                <DataAccessor DataItem="RByte1" Id="n13" Bounds="1029 175 70 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w21" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="RByte2" Id="n14" Bounds="1043 203 70 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w22" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="RByte3" Id="n17" Bounds="1057 231 70 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w23" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="RByte4" Id="n19" Bounds="1071 259 70 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w24" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="RByte5" Id="n20" Bounds="1085 287 70 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w25" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="RByte6" Id="n21" Bounds="1099 315 70 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w26" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="RByte7" Id="n22" Bounds="1113 343 70 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w27" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="RByte8" Id="n23" Bounds="1127 371 70 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w28" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <Wire Id="w21" Joints="N(n41:Value1) N(n13:Value)" />
+                <Wire Id="w22" Joints="N(n41:Value2) h(56) v(14) N(n14:Value)" />
+                <Wire Id="w23" Joints="N(n41:Value3) h(49) v(28) N(n17:Value)" />
+                <Wire Id="w24" Joints="N(n41:Value4) h(42) v(42) N(n19:Value)" />
+                <Wire Id="w25" Joints="N(n41:Value5) h(35) v(56) N(n20:Value)" />
+                <Wire Id="w26" Joints="N(n41:Value6) h(25) v(70) N(n21:Value)" />
+                <Wire Id="w27" Joints="N(n41:Value7) h(14) v(84) N(n22:Value)" />
+                <Wire Id="w28" Joints="N(n41:Value8) h(7) v(98) N(n23:Value)" />
+            </BlockDiagram>
+        </VirtualInstrument>
+    </Namespace>
+</SourceFile>
